@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace RonAndKanye
 {
@@ -6,8 +7,14 @@ namespace RonAndKanye
     {
         static void Main(string[] args)
         {
-            quoteGenerator.GetKanyeQuote();
-            quoteGenerator.GetRonQuote();
+            for (int i = 0; i < 5; i++)
+            {
+                quoteGenerator.GetKanyeQuote();
+                Thread.Sleep(500);
+                quoteGenerator.GetRonQuote();
+                Thread.Sleep(500);
+                Console.WriteLine();
+            }
         }
     }
 }
